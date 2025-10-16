@@ -14,6 +14,7 @@ it('returns an error if the order is not found', async () => {
 
 it('returns an error if the order does not belong to the user', async () => {
   const ticket = Ticket.build({
+    id: new mongoose.Types.ObjectId().toHexString(),
     title: 'concert',
     price: 20,
   });
@@ -39,6 +40,7 @@ it('returns 401 if the user is not authenticated', async () => {
 
 it('returns the order if it exists and belongs to the user', async () => {
   const ticket = Ticket.build({
+    id: new mongoose.Types.ObjectId().toHexString(),
     title: 'concert',
     price: 20,
   });

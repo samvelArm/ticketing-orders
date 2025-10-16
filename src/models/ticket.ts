@@ -3,7 +3,7 @@ import { Order, OrderStatus } from './order';
 import { updateIfCurrentPlugin } from 'mongoose-update-if-current';
 
 interface TicketAttrs {
-  id?: string;
+  id: string;
   title: string;
   price: number;
 }

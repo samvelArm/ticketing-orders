@@ -1,7 +1,8 @@
 import request from 'supertest';
 import { app } from '../../app';
 import { Ticket } from '../../models/ticket';
-import { Order, OrderStatus } from '../../models/order';
+import { OrderStatus } from '../../models/order';
+import mongoose from 'mongoose';
 
 it('returns an error if the user is not authenticated', async () => {
   await request(app).get('/api/orders').send().expect(401);
@@ -9,6 +10,7 @@ it('returns an error if the user is not authenticated', async () => {
 
 const buildTicket = async (title: string, price: number) => {
   const ticket = Ticket.build({
+    id: new mongoose.Types.ObjectId().toHexString(),
     title: title,
     price: price,
   });

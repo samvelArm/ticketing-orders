@@ -21,6 +21,7 @@ it('returns an error if the order is not found', async () => {
 
 it('returns an error if the order does not belong to the user', async () => {
   const ticket = Ticket.build({
+    id: new mongoose.Types.ObjectId().toHexString(),
     title: 'concert',
     price: 20,
   });
@@ -39,6 +40,7 @@ it('returns an error if the order does not belong to the user', async () => {
 
 it('returns 204 if the order is deleted', async () => {
   const ticket = Ticket.build({
+    id: new mongoose.Types.ObjectId().toHexString(),
     title: 'concert',
     price: 20,
   });
@@ -61,6 +63,7 @@ it('returns 204 if the order is deleted', async () => {
 
 it('publishes an order cancelled event', async () => {
   const ticket = Ticket.build({
+    id: new mongoose.Types.ObjectId().toHexString(),
     title: 'concert',
     price: 20,
   });
